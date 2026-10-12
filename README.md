@@ -1,13 +1,13 @@
 # Smart Campus Bus Management System — Backend
 
-A Spring Boot REST API for managing campus transportation data. The backend provides CRUD operations for buses, routes, drivers, students, and schedules, with MySQL as the database.
+A Spring Boot REST API for managing campus transportation data. The backend provides CRUD operations for buses, routes, drivers, students, and schedules, using MySQL as the database.
 
 ## Features
 
 - **Bus Management:** Add, view, update, and delete bus records.
 - **Route Management:** Manage route names, starting points, destinations, and stops.
 - **Driver Management:** Store driver details, phone numbers, license numbers, and addresses.
-- **Student Management:** Manage student names, roll numbers, departments, phone numbers, and years.
+- **Student Management:** Manage student names, roll numbers, departments, phone numbers, and academic years.
 - **Schedule Management:** Manage bus numbers, routes, departure times, arrival times, and days.
 - **Database Integration:** Store and retrieve records using MySQL.
 
@@ -39,47 +39,61 @@ CREATE DATABASE campus_bus;
 
 Configure the database connection in `src/main/resources/application.properties`.
 
-Set your database URL, username, and password using environment variables:
+Set the following environment variables for database connectivity:
 
-- `DB_URL`
-- `DB_USERNAME`
-- `DB_PASSWORD`
+- `DB_URL` — JDBC URL of the MySQL database
+- `DB_USERNAME` — MySQL username
+- `DB_PASSWORD` — MySQL password
 
-Do not upload database passwords or other secrets to GitHub.
+**Security note:** Never commit database passwords or other sensitive credentials to GitHub.
 
 ## Run the Backend Locally
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Sanjanabandari/smart-campus-bus-backend.git
 ```
 
-Enter the project directory:
+### 2. Enter the project directory
 
 ```bash
 cd smart-campus-bus-backend
 ```
 
-On Windows, run the application using the Maven Wrapper:
+### 3. Start the application on Windows
+
+Using the included Maven Wrapper:
 
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-The backend uses port `8080` by default, unless configured otherwise.
+Alternatively, if Maven is installed:
+
+```powershell
+mvn spring-boot:run
+```
+
+### 4. Access the backend
+
+The application uses port `8080` by default, unless configured otherwise.
+
+Base URL:
+
+```text
+http://localhost:8080
+```
 
 ## API Modules
 
-The application supports these modules:
+The application supports CRUD operations for the following modules:
 
-- Buses
-- Routes
-- Drivers
-- Students
-- Schedules
-
-Each module supports CRUD operations through the REST API.
+- **Buses:** Create, retrieve, update, and delete bus records.
+- **Routes:** Manage campus routes and stops.
+- **Drivers:** Manage driver information.
+- **Students:** Manage student records.
+- **Schedules:** Manage bus schedules.
 
 ## Frontend Repository
 
